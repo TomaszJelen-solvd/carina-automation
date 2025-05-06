@@ -59,13 +59,6 @@ public class HomePage extends HomePageBase {
     }
 
     @Override
-    public void addSeveralProductsToCart(int index, int quantity) {
-        for (int i = 0; i < quantity; i++) {
-            addProductToCart(index);
-        }
-    }
-
-    @Override
     public LoginPageBase clickLogin() {
         clickElement(loginButton);
         return initPage(driver, LoginPageBase.class);

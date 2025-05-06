@@ -10,15 +10,11 @@ import org.testng.annotations.Parameters;
 
 public abstract class AbstractTest implements IAbstractTest {
     protected final Logger logger = LoggerFactory.getLogger(getClass());
-//    private static final ThreadLocal<WebDriver> drivers = new ThreadLocal<>();
     WebDriver driver;
-
 
     @Parameters("browser")
     @BeforeMethod(alwaysRun = true)
     public void setUp(String browser) {
-//        drivers.set(getDriver());
-//        driver = getDriver();
         if (browser.equalsIgnoreCase("firefox")) {
             FirefoxOptions firefoxOptions = new FirefoxOptions();
             firefoxOptions.addArguments("--kiosk");
@@ -28,6 +24,4 @@ public abstract class AbstractTest implements IAbstractTest {
         }
         logger.info("WebDriver created for thread: {}", Thread.currentThread().getId());
     }
-
-
 }
